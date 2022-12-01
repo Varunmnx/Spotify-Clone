@@ -2,34 +2,31 @@ import React from "react";
 import { Icon } from "../../Icons/Icons";
 import { useRef,useEffect } from "react";
 
-const WhiteAndPointedOnHover = ({ children }) => (
-  <span className="ml-3  text-side-bar  hover:text-white cursor-pointer pr-3">
-    {children}
-  </span>
-);
+
 
 const ArrowButtons = () =>{ 
   let tobeinView = useRef()
   useEffect(()=>tobeinView.current.scrollIntoView({ behavior: "smooth" }),[])
 
   return(
-  <div>
-    <div ref={tobeinView} className="absolute left-1/3 text-white flex flex-row cursor-pointer justify-center items-center h-full">
-      <div>
-        <Icon name="prev" />
-      </div>
-      <div>
-        <Icon name="next" />
-      </div>
+  
+    <div ref={tobeinView} className="  text-white flex flex-row cursor-pointer justify-center items-center h-full">
+        <div className="ml-5 h-full flex flex-row items-center sm:opacity-100 opacity-0">
+          <div className="bg-black rounded-full h-[32px] w-[32px] flex items-center justify-center ml-1 ">
+          <Icon name="prev" />
+          </div>
+          <div className="bg-black rounded-full h-[32px] w-[32px] flex items-center justify-center ml-1">
+          <Icon name="next" />
+          </div>
+        </div>    
     </div>
-  </div>
 );}
 
 const OnCenterAndLeftSided = ({ children }) => (
   <section className="w-100 bg-spotify-top h-24  flex flex-row">
     <div
       alt="Arrow button part"
-      className="w-2/3 h-full bg-spotify-top relative"
+      className="w-2/3 h-full bg-spotify-top flex items-start"
     >
       <ArrowButtons />
     </div>
@@ -50,11 +47,12 @@ const LoginButton = () => (
 export const TopHeader = () => {
   return (
     <OnCenterAndLeftSided>
-      <WhiteAndPointedOnHover>Premium</WhiteAndPointedOnHover>
-      <WhiteAndPointedOnHover>Support</WhiteAndPointedOnHover>
-      <WhiteAndPointedOnHover>Download</WhiteAndPointedOnHover>
+      <span className="ml-3  text-side-bar  hover:text-white cursor-pointer pr-3 md:hidden hidden lg:block">Premium</span>
+      <span className="ml-3  text-side-bar  hover:text-white cursor-pointer pr-3 md:hidden hidden lg:block" >Support</span>
+      <span className="ml-3  text-side-bar  hover:text-white cursor-pointer pr-3">Download</span>
       <span className="ml-3  text-white font-bold pr-2">|</span>
-      <WhiteAndPointedOnHover>Signup</WhiteAndPointedOnHover>
+
+      <span className="ml-3  text-side-bar  hover:text-white cursor-pointer pr-3">Signup</span>
       <LoginButton />
     </OnCenterAndLeftSided>
   );

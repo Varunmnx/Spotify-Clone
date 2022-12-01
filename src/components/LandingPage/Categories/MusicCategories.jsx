@@ -1,6 +1,13 @@
 import React from "react";
 import { CategoriesItem } from "./CategoriesItems/CategoriesItem";
 
+const Categorieswrapper=({children})=>(
+  <div className="w-[95%] h-96 overflow-hidden">
+      {children}
+  </div>
+)
+
+
 const PlayList = () => {
   return (
     <div className="w-full h-auto flex flex-col items-center content-center">
@@ -9,14 +16,17 @@ const PlayList = () => {
           Spotify Playlists
         </span>
       </div>
-      <div className="w-[95%] h-96 flex flex-row">
-        <CategoriesItem category="Lofi" id="one"/>
-        <CategoriesItem category="Lofi" id="two"/>
-        <CategoriesItem category="Lofi" id="three"/>
-        <CategoriesItem category="Lofi" id="four"/>
-        <CategoriesItem category="Lofi" id="five"/>
-        <CategoriesItem category="Lofi"  id="six"/>
-      </div>
+      <Categorieswrapper>
+          <div className="w-[95%] h-96 flex flex-row overflow-x-scroll">
+            <CategoriesItem category="Lofi" id="one"/>
+            <CategoriesItem category="Lofi" id="two"/>
+            <CategoriesItem category="Lofi" id="three"/>
+            <CategoriesItem category="Lofi" id="four"/>
+            <CategoriesItem category="Lofi" id="five"/>
+            <CategoriesItem category="Lofi"  id="six"/>
+          </div>
+      </Categorieswrapper>
+
     </div>
   );
 };

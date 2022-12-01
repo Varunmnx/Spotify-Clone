@@ -13,3 +13,25 @@ body{
   margin: 0 !important;
   padding: 0 !important;
 }
+
+::-webkit-scrollbar {
+  width: 3px !important;
+  background: #242424;
+  height:3px;
+  border-radius: 10px 10px;
+  
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(72, 71, 71);
+  border-radius: 3px !important;
+  opacity: 0.2;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #242424;
+  border-radius: 3px;
+  
+}

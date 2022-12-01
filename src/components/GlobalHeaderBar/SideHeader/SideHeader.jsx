@@ -4,7 +4,7 @@ import { Library, Home, Liked, Playlist, Search,CookiesAndIcons } from "./SideIc
 
 const SideBarOuterWrapper = ({ children }) => {
   return (
-      <header className="w-1/5 bg-black h-screen">
+      <header className="w-1/5 bg-black h-screen flex-shrink-0 sm:hidden lg:block hidden">
         {children}
       </header>
   );
