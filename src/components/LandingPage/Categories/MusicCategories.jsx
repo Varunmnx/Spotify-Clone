@@ -1,5 +1,7 @@
 import React from "react";
 import { CategoriesItem } from "./CategoriesItems/CategoriesItem";
+import { motion, useSpring, useTransform } from "framer-motion";
+
 
 const Categorieswrapper=({children})=>(
   <div className="w-[95%] h-96 overflow-hidden">
@@ -9,6 +11,9 @@ const Categorieswrapper=({children})=>(
 
 
 const PlayList = () => {
+  const x = useSpring(0,{ stiffness:300,damping:200 })
+  const width = useTransform(x,[-1080,0],[500,0])
+
   return (
     <div className="w-full h-auto flex flex-col items-center content-center">
       <div className="w-[95%] h-24">
@@ -17,16 +22,29 @@ const PlayList = () => {
         </span>
       </div>
       <Categorieswrapper>
-          <div className="w-[95%] h-96 flex flex-row overflow-x-scroll">
+          <motion.div className="w-[95%] h-96 flex flex-row"
+          style= {{x}}
+          drag={"x"}
+          dragConstraints={{left:-1080,right:0}}
+          dragElastic={0.05}
+          transition={{ease:[0.6,0.05,-0.01,0.99]}}
+         
+          >
             <CategoriesItem category="Lofi" id="one"/>
             <CategoriesItem category="Lofi" id="two"/>
             <CategoriesItem category="Lofi" id="three"/>
             <CategoriesItem category="Lofi" id="four"/>
             <CategoriesItem category="Lofi" id="five"/>
             <CategoriesItem category="Lofi"  id="six"/>
-          </div>
+          </motion.div>
       </Categorieswrapper>
-
+      <motion.div className="w-[500px] h-1 bg-gray-800">
+         <motion.div 
+              className="w-[500px] h-1 bg-gray-500"
+              style={{width}}>
+                
+          </motion.div>
+       </motion.div>
     </div>
   );
 };
